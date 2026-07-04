@@ -1,0 +1,11 @@
+services:
+  api:
+    build: .
+    container_name: satisfactory_app
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mapeia a pasta atual para manter o banco de dados persistido na sua máquina física
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
