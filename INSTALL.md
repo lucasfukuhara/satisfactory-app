@@ -15,7 +15,7 @@ O Docker criará um ambiente isolado com o Python 3.14 compilando as dependênci
 
 ```bash
 # 1. Clone o repositório e acesse a pasta raiz
-cd satisfactory-app
+cd satisfactory-app\backend\
 
 # 2. Inicie os serviços em segundo plano (Background)
 docker-compose up -d --build

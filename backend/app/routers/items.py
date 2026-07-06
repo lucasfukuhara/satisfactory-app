@@ -23,7 +23,7 @@ def gerar_plano_recursivo(item_id: int, quantidade_necessaria: int, db: Session,
         return
 
     for receita in receitas:
-        execucoes = (quantidade_necessaria + receita.quantidade_produzida - 1) // receita.quantidade_produzida
+        execucoes = (quantidade_necessaria / receita.quantidade_produzida)
         qtd_ingrediente = execucoes * receita.quantidade_ingrediente
         
         ingrediente = db.query(ItemJogo).filter_by(id=receita.item_ingrediente_id).first()
