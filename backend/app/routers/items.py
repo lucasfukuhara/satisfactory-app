@@ -11,7 +11,7 @@ from app.schemas import (
 # O prefixo e a tag foram mantidos aqui para organizar a documentação automática (/docs)
 router = APIRouter(prefix="/api/itens", tags=["Itens e Produção"])
 
-def gerar_plano_recursivo(item_id: int, quantidade_necessaria: int, db: Session, plano_acumulado: dict):
+def gerar_plano_recursivo(item_id: int, quantidade_necessaria: float, db: Session, plano_acumulado: dict):
     """Varre a árvore de receitas acumulando e somando subcomponentes e insumos brutos"""
     receitas = db.query(ReceitaIngrediente).filter_by(item_resultado_id=item_id).all()
     
@@ -53,7 +53,9 @@ def cadastrar_item_e_receita(item_in: ItemJogoCreate):
         if item_existente:
             raise HTTPException(status_code=400, detail="Item com este nome já cadastrado.")
 
-        novo_item = ItemJogo(nome=item_in.nome, quantidade_estoque=item_in.quantidade_estoque)
+        novo_item = ItemJogo(nome=item_in.nome,
+                             #quantidade_estoque=item_in.quantidade_estoque
+                             )
         db.add(novo_item)
         db.flush()
 
