@@ -9,13 +9,13 @@ services:
     environment:
       POSTGRES_USER: usuario
       POSTGRES_PASSWORD: senha_segura
-      POSTGRES_DB: satisfactory_api
+      POSTGRES_DB: satisfactory_db
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U usuario -d satisfactory_api"]
+      test: ["CMD-SHELL", "pg_isready -U usuario -d satisfactory_db"]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -23,12 +23,12 @@ services:
   # Serviço da API Python (FastAPI)
   api:
     build: .
-    container_name: fastapi_app
+    container_name: satisfactory_app
     restart: always
     ports:
       - "8000:8000"
     environment:
-      - SQLALCHEMY_DATABASE_URL=postgresql://usuario:senha_segura@db:5432/satisfactory_api
+      - SQLALCHEMY_DATABASE_URL=postgresql://usuario:senha_segura@db:5432/satisfactory_db
     depends_on:
       db:
         condition: service_healthy

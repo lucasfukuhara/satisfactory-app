@@ -6,7 +6,7 @@ from sqlalchemy.orm import sessionmaker
 # URL de conexão com o PostgreSQL rodando no Docker
 SQLALCHEMY_DATABASE_URL = os.getenv(
     "SQLALCHEMY_DATABASE_URL",
-    "postgresql://usuario:senha_segura@localhost:5432/produtos_db"
+    "postgresql://usuario:senha_segura@localhost:5432/satisfactory_db"
 )
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)

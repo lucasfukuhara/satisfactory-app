@@ -9,7 +9,7 @@ from . import schemas
 # Cria as tabelas automaticamente no banco ao iniciar a aplicação
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="API de Cadastro de Produtos")
+app = FastAPI(title="API de modelo para o Satisfactory")
 
 @app.post("/produtos", response_model=schemas.ProdutoResponse, status_code=status.HTTP_201_CREATED)
 def criar_produto(produto: schemas.ProdutoCreate, db: Session = Depends(get_db)):

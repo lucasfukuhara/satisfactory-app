@@ -45,16 +45,16 @@ docker ps -a
 
 ### 3. Verificar os Logs da Aplicação
 
-Para acompanhar os logs em tempo real do container da API (`fastapi_app`):
+Para acompanhar os logs em tempo real do container da API (`satisfactory_app`):
 
 ```bash
-docker logs -f fastapi_app
+docker logs -f satisfactory_app
 ```
 
 Para visualizar apenas as últimas 50 linhas do log:
 
 ```bash
-docker logs --tail 50 fastapi_app
+docker logs --tail 50 satisfactory_app
 ```
 
 Para verificar os logs do banco de dados PostgreSQL (`postgres_db`):
@@ -102,7 +102,7 @@ docker compose up -d --build --force-recreate
 Acompanhe os logs para validar que a nova versão subiu com sucesso:
 
 ```bash
-docker logs -f fastapi_app
+docker logs -f satisfactory_app
 ```
 
 Você deverá visualizar a mensagem `INFO: Application startup complete.` indicando que a aplicação está pronta para uso.
