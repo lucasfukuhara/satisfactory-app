@@ -27,6 +27,8 @@ services:
     restart: always
     ports:
       - "8000:8000"
+    volumes:
+      - ./app:/app/app
     environment:
       - SQLALCHEMY_DATABASE_URL=postgresql://usuario:senha_segura@db:5432/satisfactory_db
     depends_on:
