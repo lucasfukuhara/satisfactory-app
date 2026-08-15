@@ -2,9 +2,9 @@ from fastapi import FastAPI, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
 
-from database import engine, Base, get_db
-import models
-import schemas
+from .database import engine, Base, get_db
+from . import models
+from . import schemas
 
 # Cria as tabelas automaticamente no banco ao iniciar a aplicação
 Base.metadata.create_all(bind=engine)
